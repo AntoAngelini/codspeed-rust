@@ -224,7 +224,7 @@ jobs:
         run: |
           # Remove the cargo config else it forces instrumentation mode
           rm -f .cargo/config.toml
-          cargo codspeed build -p ${{ matrix.package }} ${{ matrix.bench && format('--bench {0}', matrix.bench) || '' }}
+          cargo codspeed build -m walltime -p ${{ matrix.package }} ${{ matrix.bench && format('--bench {0}', matrix.bench) || '' }}
 
       - name: Run the benchmarks
         uses: CodSpeedHQ/action@v5
